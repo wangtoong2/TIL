@@ -72,7 +72,26 @@
                   3. 이후 "git pull", "git push" 등을 별도 remote 설정 없이 바로 사용 가능
                   => "git clone" = "git init" + "git remote add origin ..." + 초기 fetch(변경사항 가져오기, 자동 병합은 X)
         
-        git checkout -b ->
+        (+추가)
+        git checkout -b ( 추가할 branch 명 ) -> branch 추가
 
+        * gitignore
+        "touch .gitignore"로 파일 생성 후 파일 내부에 staging area로 옮기지 않을 파일명을 명시한다
+
+        git revert ( commit_hash )  -> 특정 commit을 없었던 일로 만든다
+            vim editor => esc -> :wq
+
+        git reset -> 특정 commit으로 되돌리기
+            git reflog -> 과거 commit 기록들 열람 가능
+            git reset --hard HEAD@{Number} -> 해당 번호 이전 작업 상태로 돌아감
+            ( reflog 후 나온 번호 값 {Number}에 입력 )
+
+        Staging area에 있는 작업을 working directory로 옮기기 ( git add 취소하기 )
+        1. commit이 없는 경우
+            git rm --cached ( file_name )
         
+        *권장방법
+        2. 이전에 했던 commit이 있는 경우
+            git restore --staged ( file_name )
 
+        ( git 2.23버전 업데이트 이후 둘 다 가능, but restore 권장 )
